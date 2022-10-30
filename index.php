@@ -9,43 +9,25 @@ create un file index.php in cui:
 - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
 */
 
-class Movie {
+require_once __DIR__ . './Movie.php';
 
-    public $title;
-    public $movie_director;
-    public $year;
+$pulp_fiction = new Movie("Pulp Fiction", 1994);
+$pulp_fiction->movie_director = 'Quentin Tarantino';
 
-    public $genre = '';
-    public $language = '';
-    public $actors = [];
-    public $overview = '';
-    public $duration = 0;
-    public $film_age = 0;
-    public $current_year;
+$pulp_fiction->addGenre('Commedia');
+$pulp_fiction->addGenre('Giallo');
+$pulp_fiction->addGenre('Drammatico');
+
+$pulp_fiction->addActor('Brad Pitt');
+$pulp_fiction->addActor('Edward Northon');
+$pulp_fiction->addActor('Helena Bonham Carter');
+
+$pulp_fiction->duration = 154;
+$pulp_fiction->language = 'en';
 
 
-    function __construct($_title, $_year = 0){
-        $this->title = $_title;
-        $this->year = $_year;
-        $this->getCurrentYear();
-        $this->getAge($_year);
-    }
-
-    public function getAge($year){
-        if($year > 0){
-        $this->film_age = $this->current_year - $year;
-        }
-    }
-
-    public function getCurrentYear()
-    {
-        $this->current_year = intval(date("Y"));
-    }
-
-}
-
-$pulp_fiction = new Movie("Pulp Fiction");
 
 var_dump($pulp_fiction)
 
 ?>
+
