@@ -27,7 +27,7 @@ $pulp_fiction->language = 'en';
 
 
 
-var_dump($pulp_fiction)
+//var_dump($pulp_fiction)
 
 ?>
 
